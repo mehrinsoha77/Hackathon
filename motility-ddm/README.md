@@ -234,6 +234,15 @@ npm run build:smoke       # test/gpu/camera_smoke.bundle.js
 npm run test:gpu          # headless GPU parity via playwright-core (add -- --swiftshader without a GPU)
 ```
 
+**Requirements:** Node.js `^20.19.0 || >=22.12.0` (Vite 7) and npm 10+. If `npm install` fails:
+
+| Message | Fix |
+|---|---|
+| `ENOENT … package.json` | You are in the repository root. Run `cd motility-ddm` first, after `git checkout claude/happy-shannon-mxrj7c` if the PR isn't merged yet. |
+| `EBADENGINE` / `Unsupported engine` | Upgrade Node to 22 LTS (`node -v` to check). |
+| `npm.ps1 cannot be loaded because running scripts is disabled` (Windows PowerShell) | Use `npm.cmd install`, switch the VS Code terminal to Command Prompt, or run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once. |
+| `EACCES`/`EPERM`, or a half-finished earlier install | Delete `node_modules` and run `npm install` again (never with `sudo`). |
+
 On a phone: run `adb reverse tcp:5173 tcp:5173`, then open `http://localhost:5173/` in Chrome. localhost counts as a secure context, which camera and WebGPU both need. The device test protocol (Commands 1–3) is in [`docs/DEVICE.md`](docs/DEVICE.md).
 
 ### CPU validation matrix (`npm test`)
