@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MotilityDDM camera smoke test</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 16px; background: #0b0f14; color: #d7e0ea; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+      h1 { font: 600 16px system-ui, sans-serif; margin: 0 0 8px; }
+      p { color: #8a9bb0; margin: 0 0 12px; font-family: system-ui, sans-serif; }
+      video { width: 100%; max-width: 480px; aspect-ratio: 16 / 9; background: #000; border-radius: 8px; display: block; margin-bottom: 12px; }
+      pre { white-space: pre-wrap; word-break: break-all; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Camera + WebGPU smoke test</h1>
+    <p>Allow the camera. The test locks the camera, ingests 40 frames on the GPU, runs a full temporal pass while frames keep arriving, and prints one <code>RESULT</code> line (also in the DevTools console via chrome://inspect).</p>
+    <video id="video" playsinline muted></video>
+    <pre id="log"></pre>
+    <script type="module" src="./camera_smoke.bundle.js"></script>
+  </body>
+</html>

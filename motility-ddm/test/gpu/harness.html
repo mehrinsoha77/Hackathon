@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MotilityDDM GPU parity</title>
+    <link rel="icon" href="data:," />
+    <style>
+      :root { color-scheme: dark; }
+      body { margin: 0; padding: 16px; background: #0b0f14; color: #d7e0ea; font: 13px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+      h1 { font: 600 16px system-ui, sans-serif; margin: 0 0 8px; }
+      p { color: #8a9bb0; margin: 0 0 12px; font-family: system-ui, sans-serif; }
+      pre { white-space: pre-wrap; word-break: break-all; margin: 0; }
+    </style>
+  </head>
+  <body>
+    <h1>GPU kernels vs float64 CPU reference</h1>
+    <p>Runs for up to a few minutes on a phone (the float64 reference runs on the CPU). The verdict is the <code>RESULT</code> line; it is also printed to the DevTools console.</p>
+    <pre id="log"></pre>
+    <script type="module" src="./harness.bundle.js"></script>
+  </body>
+</html>
