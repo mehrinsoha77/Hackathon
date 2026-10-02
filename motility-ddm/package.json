@@ -1,0 +1,25 @@
+{
+  "name": "motility-ddm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smartphone differential dynamic microscopy (DDM) motility detector on WebGPU with falsification gates.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "node test/t_validation_matrix.mjs",
+    "test:unit": "node test/t_fft.mjs && node test/t_kernels.mjs && node test/t_drift_phase.mjs",
+    "build:harness": "esbuild test/gpu/harness.ts --bundle --format=esm --target=es2022 --outfile=test/gpu/harness.bundle.js",
+    "build:smoke": "esbuild test/gpu/camera_smoke.ts --bundle --format=esm --target=es2022 --outfile=test/gpu/camera_smoke.bundle.js",
+    "test:gpu": "node test/gpu/run_gpu_tests.mjs"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.74",
+    "esbuild": "^0.28.2",
+    "playwright-core": "^1.63.0",
+    "typescript": "^6.0.0",
+    "vite": "^7.3.6"
+  }
+}
